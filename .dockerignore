@@ -1,0 +1,16 @@
+node_modules
+npm-debug.log
+.git
+.gitignore
+README.md
+*.md
+dist
+build
+.env.local
+.env.development
+*.tar.gz
+public
+src
+test-*.js
+verify-*.js
+send-*.js

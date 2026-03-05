@@ -1,0 +1,47 @@
+[
+    {
+        "name": "Claudia Alejandra Cabrillana",
+        "province": "Mendoza",
+        "points": 1350
+    },
+    {
+        "name": "Rodrigo Andrés Ayala",
+        "province": "Buenos Aires",
+        "points": 850
+    },
+    {
+        "name": "Nestor Eduardo Mosquera",
+        "province": "Buenos Aires",
+        "points": 450
+    },
+    {
+        "name": "Rocio Belen Tobares",
+        "province": "Buenos Aires",
+        "points": 200
+    },
+    {
+        "name": "Martin Nicolas Martinez",
+        "province": "Caba",
+        "points": 200
+    },
+    {
+        "name": "Lorena Ramirez",
+        "province": "Buenos Aires",
+        "points": 100
+    },
+    {
+        "name": "Tomas Rodriguez",
+        "province": "Buenos Aires",
+        "points": 50
+    },
+    {
+        "name": "Facundo Alurralde",
+        "province": "Caba",
+        "points": 50
+    },
+    {
+        "name": "José Sebastian Vega",
+        "province": "Buenos Aires",
+        "points": 0
+    }
+]
