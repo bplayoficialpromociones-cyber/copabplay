@@ -39,9 +39,9 @@ const CATEGORIAS_EGRESO = [
   'Compra de Herramienta IA Bolt',
   'Compra de Herramienta IA Metricool',
   'Compra de dominio',
-  'Renovación de dominio',
+  'RenovaciÃ³n de dominio',
   'Compra de hosting',
-  'Renovación de hosting',
+  'RenovaciÃ³n de hosting',
   'Compra de servidor de email',
   'Compra de Ads en Youtube',
   'Compra de Ads en Meta',
@@ -49,6 +49,8 @@ const CATEGORIAS_EGRESO = [
   'Compra de Ads en X',
   'Pago de premios Copa bplay',
   'Sueldos',
+  'Indumentaria',
+  'Cursos',
 ];
 
 const PROYECTOS = ['Copa bplay', 'La Lupa de Tobi'];
@@ -199,7 +201,7 @@ export default function GastosManagement({ currentUser }: { currentUser: string 
   }
 
   async function handleSave() {
-    if (!form.categoria) { setError('Selecciona una categoría.'); return; }
+    if (!form.categoria) { setError('Selecciona una categorÃ­a.'); return; }
     if (!form.monto || isNaN(Number(form.monto)) || Number(form.monto) <= 0) { setError('El monto debe ser mayor a cero.'); return; }
     if (!form.fecha) { setError('La fecha es obligatoria.'); return; }
 
@@ -267,7 +269,7 @@ export default function GastosManagement({ currentUser }: { currentUser: string 
         <div>
           <h2 className="text-2xl font-bold text-white flex items-center gap-2">
             <Wallet className="w-7 h-7 text-emerald-400" />
-            Gestión de Gastos
+            GestiÃ³n de Gastos
           </h2>
           <p className="text-gray-400 text-sm mt-1">Control de ingresos y egresos del proyecto</p>
         </div>
@@ -280,10 +282,10 @@ export default function GastosManagement({ currentUser }: { currentUser: string 
         </button>
       </div>
 
-      {/* Métricas */}
+      {/* MÃ©tricas */}
       <MetricasCards metricas={metricas} filterAnio={filterAnio} aniosDisponibles={aniosDisponibles} setFilterAnio={setFilterAnio} />
 
-      {/* Gráficos */}
+      {/* GrÃ¡ficos */}
       <GraficosSection metricas={metricas} activeChart={activeChart} setActiveChart={setActiveChart} filterAnio={filterAnio} />
 
       {/* Tabla */}
@@ -334,7 +336,7 @@ export default function GastosManagement({ currentUser }: { currentUser: string 
   );
 }
 
-/* ─── Métricas Cards ─── */
+/* â”€â”€â”€ MÃ©tricas Cards â”€â”€â”€ */
 function MetricasCards({ metricas, filterAnio, aniosDisponibles, setFilterAnio }: {
   metricas: any; filterAnio: string; aniosDisponibles: string[]; setFilterAnio: (v: string) => void;
 }) {
@@ -347,14 +349,14 @@ function MetricasCards({ metricas, filterAnio, aniosDisponibles, setFilterAnio }
         value={'$ ' + formatNum(metricas.totalIngresosARS)}
         icon={<ArrowUpCircle className="w-5 h-5" />}
         color="emerald"
-        sub={`Año ${filterAnio} — ARS`}
+        sub={`AÃ±o ${filterAnio} â€” ARS`}
       />
       <MetricCard
         label="Egresos"
         value={'$ ' + formatNum(metricas.totalEgresosARS)}
         icon={<ArrowDownCircle className="w-5 h-5" />}
         color="red"
-        sub={`Año ${filterAnio} — ARS`}
+        sub={`AÃ±o ${filterAnio} â€” ARS`}
       />
       <MetricCard
         label="Balance"
@@ -389,13 +391,13 @@ function MetricCard({ label, value, icon, color, sub, highlight }: {
   );
 }
 
-/* ─── Gráficos ─── */
+/* â”€â”€â”€ GrÃ¡ficos â”€â”€â”€ */
 function GraficosSection({ metricas, activeChart, setActiveChart, filterAnio }: {
   metricas: any; activeChart: string; setActiveChart: (v: any) => void; filterAnio: string;
 }) {
   const chartBtns = [
     { id: 'barras', label: 'Por mes', icon: <BarChart3 className="w-4 h-4" /> },
-    { id: 'torta', label: 'Por categoría', icon: <PieChart className="w-4 h-4" /> },
+    { id: 'torta', label: 'Por categorÃ­a', icon: <PieChart className="w-4 h-4" /> },
     { id: 'linea', label: 'Balance', icon: <TrendingUp className="w-4 h-4" /> },
   ];
 
@@ -404,7 +406,7 @@ function GraficosSection({ metricas, activeChart, setActiveChart, filterAnio }: 
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
         <h3 className="text-white font-semibold flex items-center gap-2">
           <BarChart3 className="w-4 h-4 text-emerald-400" />
-          Analíticas — {filterAnio === 'todos' ? 'Todos los años' : filterAnio}
+          AnalÃ­ticas â€” {filterAnio === 'todos' ? 'Todos los aÃ±os' : filterAnio}
         </h3>
         <div className="flex gap-1 bg-gray-900/60 rounded-lg p-1">
           {chartBtns.map(b => (
@@ -499,7 +501,7 @@ function GraficosSection({ metricas, activeChart, setActiveChart, filterAnio }: 
   );
 }
 
-/* ─── Tabla ─── */
+/* â”€â”€â”€ Tabla â”€â”€â”€ */
 function TablaGastos({
   gastosFiltrados, loading, searchTerm, setSearchTerm,
   filterTipo, setFilterTipo,
@@ -523,7 +525,7 @@ function TablaGastos({
             <input
               value={searchTerm}
               onChange={e => setSearchTerm(e.target.value)}
-              placeholder="Buscar por descripción, categoría o proyecto..."
+              placeholder="Buscar por descripciÃ³n, categorÃ­a o proyecto..."
               className="w-full bg-gray-900/60 border border-gray-700 rounded-lg pl-9 pr-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500"
             />
           </div>
@@ -538,7 +540,7 @@ function TablaGastos({
               { value: 'todos', label: 'Meses' }, ...MESES.map((m, i) => ({ value: (i + 1).toString(), label: m }))
             ]} icon={<Calendar className="w-3.5 h-3.5" />} />
             <FilterSelect value={filterAnio} onChange={setFilterAnio} options={[
-              { value: 'todos', label: 'Años' }, ...aniosDisponibles.map((a: string) => ({ value: a, label: a }))
+              { value: 'todos', label: 'AÃ±os' }, ...aniosDisponibles.map((a: string) => ({ value: a, label: a }))
             ]} icon={<Filter className="w-3.5 h-3.5" />} />
           </div>
         </div>
@@ -566,10 +568,10 @@ function TablaGastos({
                   <th className="text-left px-4 py-3 text-gray-400 font-medium">Tipo</th>
                   <th className="text-left px-4 py-3 text-gray-400 font-medium">
                     <button className="flex items-center gap-1 hover:text-white transition-colors" onClick={() => toggleSort('categoria')}>
-                      Categoría <SortIcon field="categoria" />
+                      CategorÃ­a <SortIcon field="categoria" />
                     </button>
                   </th>
-                  <th className="text-left px-4 py-3 text-gray-400 font-medium">Descripción</th>
+                  <th className="text-left px-4 py-3 text-gray-400 font-medium">DescripciÃ³n</th>
                   <th className="text-left px-4 py-3 text-gray-400 font-medium">Proyecto</th>
                   <th className="text-right px-4 py-3 text-gray-400 font-medium">
                     <button className="flex items-center gap-1 ml-auto hover:text-white transition-colors" onClick={() => toggleSort('monto')}>
@@ -667,18 +669,18 @@ function TablaGastos({
             </table>
           </div>
 
-          {/* Paginación */}
+          {/* PaginaciÃ³n */}
           {totalPaginas > 1 && (
             <div className="flex items-center justify-between px-4 py-3 border-t border-gray-700/50">
               <span className="text-xs text-gray-500">
-                Mostrando {inicio + 1}–{Math.min(inicio + itemsPorPagina, gastosFiltrados.length)} de {gastosFiltrados.length} registros
+                Mostrando {inicio + 1}â€“{Math.min(inicio + itemsPorPagina, gastosFiltrados.length)} de {gastosFiltrados.length} registros
               </span>
               <div className="flex items-center gap-1">
                 <button
                   onClick={() => setPaginaActual(1)}
                   disabled={paginaActual === 1}
                   className="p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-                  title="Primera página"
+                  title="Primera pÃ¡gina"
                 >
                   <ChevronLeft className="w-3.5 h-3.5" />
                 </button>
@@ -691,7 +693,7 @@ function TablaGastos({
                   }, [])
                   .map((p, idx) =>
                     p === '...' ? (
-                      <span key={`dots-${idx}`} className="px-1.5 text-gray-600 text-xs">…</span>
+                      <span key={`dots-${idx}`} className="px-1.5 text-gray-600 text-xs">â€¦</span>
                     ) : (
                       <button
                         key={p}
@@ -710,7 +712,7 @@ function TablaGastos({
                   onClick={() => setPaginaActual(totalPaginas)}
                   disabled={paginaActual === totalPaginas}
                   className="p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-                  title="Última página"
+                  title="Ãšltima pÃ¡gina"
                 >
                   <ChevronRight className="w-3.5 h-3.5" />
                 </button>
@@ -723,7 +725,7 @@ function TablaGastos({
   );
 }
 
-/* ─── Modal Form ─── */
+/* â”€â”€â”€ Modal Form â”€â”€â”€ */
 function FormModal({ form, setForm, editingId, error, saving, categoriasActuales, onClose, onSave }: any) {
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
@@ -759,10 +761,10 @@ function FormModal({ form, setForm, editingId, error, saving, categoriasActuales
             </div>
           </div>
 
-          {/* Categoría y Proyecto */}
+          {/* CategorÃ­a y Proyecto */}
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-medium text-gray-400 mb-1">Categoría *</label>
+              <label className="block text-xs font-medium text-gray-400 mb-1">CategorÃ­a *</label>
               <select
                 value={form.categoria}
                 onChange={e => setForm((f: any) => ({ ...f, categoria: e.target.value }))}
@@ -818,7 +820,7 @@ function FormModal({ form, setForm, editingId, error, saving, categoriasActuales
             <textarea
               value={form.notas}
               onChange={e => setForm((f: any) => ({ ...f, notas: e.target.value }))}
-              placeholder="Información adicional..."
+              placeholder="InformaciÃ³n adicional..."
               rows={2}
               className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500 resize-none"
             />
@@ -853,7 +855,7 @@ function FormModal({ form, setForm, editingId, error, saving, categoriasActuales
   );
 }
 
-/* ─── FilterSelect ─── */
+/* â”€â”€â”€ FilterSelect â”€â”€â”€ */
 function FilterSelect({ value, onChange, options, icon }: {
   value: string; onChange: (v: string) => void;
   options: { value: string; label: string }[]; icon?: React.ReactNode;
@@ -872,7 +874,7 @@ function FilterSelect({ value, onChange, options, icon }: {
   );
 }
 
-/* ─── Helpers ─── */
+/* â”€â”€â”€ Helpers â”€â”€â”€ */
 function formatNum(n: number) {
   return new Intl.NumberFormat('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n);
 }
