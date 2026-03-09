@@ -96,7 +96,7 @@ export default function LupaImportLog() {
   return (
     <div className="space-y-6">
 
-      {/* ── FUENTES RSS ── */}
+      {/* â”€â”€ FUENTES RSS â”€â”€ */}
       <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
         <div className="px-5 py-3 bg-gray-50 border-b border-gray-100 flex items-center gap-2">
           <Rss className="w-4 h-4 text-blue-500" />
@@ -173,7 +173,7 @@ export default function LupaImportLog() {
         )}
       </div>
 
-      {/* ── RESUMEN ── */}
+      {/* â”€â”€ RESUMEN â”€â”€ */}
       <div className="grid grid-cols-3 gap-3">
         <div className="bg-white rounded-xl border border-gray-200 p-4 text-center">
           <div className="text-2xl font-bold text-gray-900">{logs.length}</div>
@@ -189,14 +189,14 @@ export default function LupaImportLog() {
         </div>
       </div>
 
-      {/* ── HISTORIAL ── */}
+      {/* â”€â”€ HISTORIAL â”€â”€ */}
       <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
         <div className="px-5 py-3 bg-gray-50 border-b border-gray-100 flex items-center gap-2">
           <List className="w-4 h-4 text-gray-500" />
           <span className="text-sm font-semibold text-gray-700">Historial de importaciones</span>
           {logs.length > 0 && (
             <span className="text-xs text-gray-400 ml-1">
-              {(paginaActual - 1) * PAGE_SIZE + 1}–{Math.min(paginaActual * PAGE_SIZE, logs.length)} de {logs.length}
+              {(paginaActual - 1) * PAGE_SIZE + 1}â€“{Math.min(paginaActual * PAGE_SIZE, logs.length)} de {logs.length}
             </span>
           )}
           <button
@@ -290,7 +290,7 @@ export default function LupaImportLog() {
                             <span className="text-xs text-gray-400">
                               {log.fuentes_procesadas} fuente{log.fuentes_procesadas !== 1 ? 's' : ''} procesadas
                             </span>
-                            <span className="text-gray-200">·</span>
+                            <span className="text-gray-200">Â·</span>
                             <span className="text-xs text-gray-400">{log.duracion_segundos}s</span>
                           </div>
                         </>
@@ -298,7 +298,7 @@ export default function LupaImportLog() {
 
                       {log.estado === 'sin_noticias' && (
                         <p className="text-xs text-gray-400">
-                          Sin noticias nuevas · {log.fuentes_procesadas} fuentes revisadas · {log.duracion_segundos}s
+                          Sin noticias nuevas Â· {log.fuentes_procesadas} fuentes revisadas Â· {log.duracion_segundos}s
                         </p>
                       )}
 
