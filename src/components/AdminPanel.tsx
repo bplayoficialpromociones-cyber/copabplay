@@ -213,10 +213,10 @@ export default function AdminPanel({ onLogout, currentUser, initialSection }: Ad
 
       // Update local state
       setRankings(updated);
-      alert('¡Rankings guardados y posiciones recalculadas exitosamente!');
+      alert('Â¡Rankings guardados y posiciones recalculadas exitosamente!');
     } catch (error) {
       console.error('Error al guardar rankings:', error);
-      alert('Error al guardar rankings. Revise la consola para más detalles.');
+      alert('Error al guardar rankings. Revise la consola para mÃ¡s detalles.');
     } finally {
       setSaving(false);
     }
@@ -247,10 +247,10 @@ export default function AdminPanel({ onLogout, currentUser, initialSection }: Ad
       }
 
       setRankings(updated);
-      alert('¡Posiciones recalculadas y guardadas exitosamente!');
+      alert('Â¡Posiciones recalculadas y guardadas exitosamente!');
     } catch (error) {
       console.error('Error al recalcular posiciones:', error);
-      alert('Error al recalcular posiciones. Revise la consola para más detalles.');
+      alert('Error al recalcular posiciones. Revise la consola para mÃ¡s detalles.');
     } finally {
       setSaving(false);
     }
@@ -274,7 +274,7 @@ export default function AdminPanel({ onLogout, currentUser, initialSection }: Ad
 
     const points = parseInt(newPlayer.points);
     if (isNaN(points) || points < 0) {
-      alert('Los puntos deben ser un número válido mayor o igual a 0');
+      alert('Los puntos deben ser un nÃºmero vÃ¡lido mayor o igual a 0');
       return;
     }
 
@@ -330,11 +330,11 @@ export default function AdminPanel({ onLogout, currentUser, initialSection }: Ad
 
         await fetchRankings();
         closeAddPlayerModal();
-        alert('¡Jugador agregado exitosamente!');
+        alert('Â¡Jugador agregado exitosamente!');
       }
     } catch (error) {
       console.error('Error al agregar jugador:', error);
-      alert('Error al agregar jugador. Revise la consola para más detalles.');
+      alert('Error al agregar jugador. Revise la consola para mÃ¡s detalles.');
     }
   };
 
@@ -387,7 +387,7 @@ export default function AdminPanel({ onLogout, currentUser, initialSection }: Ad
 
   const massAdjustPoints = async (amount: number) => {
     if (amount === 0 || selectedPlayers.size === 0) {
-      alert('Selecciona jugadores y especifica una cantidad válida');
+      alert('Selecciona jugadores y especifica una cantidad vÃ¡lida');
       return;
     }
 
@@ -462,7 +462,7 @@ export default function AdminPanel({ onLogout, currentUser, initialSection }: Ad
   };
 
   const deletePlayer = async (id: string) => {
-    if (!confirm('¿Está seguro que desea eliminar este jugador?')) return;
+    if (!confirm('Â¿EstÃ¡ seguro que desea eliminar este jugador?')) return;
 
     try {
       const { error } = await supabase
@@ -474,7 +474,7 @@ export default function AdminPanel({ onLogout, currentUser, initialSection }: Ad
       setRankings(rankings.filter(r => r.id !== id));
     } catch (error) {
       console.error('Error al eliminar jugador:', error);
-      alert('Error al eliminar jugador. Revise la consola para más detalles.');
+      alert('Error al eliminar jugador. Revise la consola para mÃ¡s detalles.');
     }
   };
 
@@ -486,7 +486,7 @@ export default function AdminPanel({ onLogout, currentUser, initialSection }: Ad
     { id: 'overview' as TabType, label: 'Resumen', icon: LayoutDashboard },
     { id: 'rankings' as TabType, label: 'Rankings', icon: Users },
     { id: 'history' as TabType, label: 'Historial Rankings', icon: Archive },
-    { id: 'historical' as TabType, label: 'Jugadores Históricos', icon: UserCheck },
+    { id: 'historical' as TabType, label: 'Jugadores HistÃ³ricos', icon: UserCheck },
     { id: 'giro' as TabType, label: 'Jugadores Giro Ganador', icon: Users },
     { id: 'audit' as TabType, label: 'Fiscalizar Torneo', icon: ClipboardCheck },
     { id: 'prizes' as TabType, label: 'Premios', icon: Trophy },
@@ -497,14 +497,14 @@ export default function AdminPanel({ onLogout, currentUser, initialSection }: Ad
     { id: 'content' as TabType, label: 'Contenido', icon: Video },
     { id: 'manufacturers' as TabType, label: 'Landing Fabricantes', icon: Factory },
     { id: 'clients' as TabType, label: 'Clientes Potenciales', icon: UserPlus },
-    { id: 'bot' as TabType, label: 'Envíos del Bot', icon: RefreshCw },
+    { id: 'bot' as TabType, label: 'EnvÃ­os del Bot', icon: RefreshCw },
     { id: 'tareas' as TabType, label: 'Tareas', icon: CheckSquare },
     { id: 'lupa' as TabType, label: 'RSS La Lupa de Tobi', icon: Rss },
     { id: 'lupa_log' as TabType, label: 'Log de Importacion', icon: List },
     { id: 'gastos' as TabType, label: 'Gastos', icon: Wallet, superAdminOnly: true },
     { id: 'sueldos' as TabType, label: 'Sueldos', icon: Banknote, superAdminOnly: true },
     { id: 'servicios_usd' as TabType, label: 'Servicios USD', icon: DollarSign, superAdminOnly: true },
-    { id: 'users' as TabType, label: 'Gestión de Usuarios', icon: ShieldCheck, superAdminOnly: true },
+    { id: 'users' as TabType, label: 'GestiÃ³n de Usuarios', icon: ShieldCheck, superAdminOnly: true },
     { id: 'emailicons' as TabType, label: 'Iconos de Email', icon: Mail, superAdminOnly: true },
     { id: 'emailtest' as TabType, label: 'Test Email', icon: Settings, superAdminOnly: true },
     { id: 'account' as TabType, label: 'Cuenta', icon: Settings },
@@ -578,7 +578,7 @@ export default function AdminPanel({ onLogout, currentUser, initialSection }: Ad
             className="w-full flex items-center gap-3 px-4 py-3 bg-red-600 hover:bg-red-700 transition-colors"
           >
             <LogOut className="w-5 h-5 flex-shrink-0" />
-            {sidebarOpen && <span className="text-sm font-medium">Cerrar Sesión</span>}
+            {sidebarOpen && <span className="text-sm font-medium">Cerrar SesiÃ³n</span>}
           </button>
         </nav>
       </aside>
@@ -586,7 +586,7 @@ export default function AdminPanel({ onLogout, currentUser, initialSection }: Ad
       <main className="flex-1 overflow-auto">
         <div className="bg-white border-b border-gray-200 px-8 py-4 flex items-center justify-between sticky top-0 z-30">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">Panel de Administración</h1>
+            <h1 className="text-2xl font-bold text-gray-900">Panel de AdministraciÃ³n</h1>
             <p className="text-sm text-gray-600">Usuario: <span className="font-semibold">{currentUser}</span></p>
           </div>
           <div className="flex items-center gap-3">
@@ -700,13 +700,13 @@ export default function AdminPanel({ onLogout, currentUser, initialSection }: Ad
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="block w-full pl-10 pr-12 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
-                placeholder="Buscar por nombre, provincia, usuario Bplay, posición o puntos..."
+                placeholder="Buscar por nombre, provincia, usuario Bplay, posiciÃ³n o puntos..."
               />
               {searchTerm && (
                 <button
                   onClick={() => setSearchTerm('')}
                   className="absolute inset-y-0 right-0 pr-3 flex items-center hover:bg-gray-100 rounded-r-lg transition-colors"
-                  title="Limpiar búsqueda"
+                  title="Limpiar bÃºsqueda"
                 >
                   <X className="h-5 w-5 text-gray-400 hover:text-gray-600" />
                 </button>
@@ -716,7 +716,7 @@ export default function AdminPanel({ onLogout, currentUser, initialSection }: Ad
               <div className="mt-3 flex items-center gap-2">
                 <div className="flex-1 bg-green-50 border border-green-200 rounded-lg px-3 py-2">
                   <p className="text-sm text-green-700 font-medium">
-                    ✓ Mostrando {filteredRankings.length} de {rankings.length} jugadores
+                    âœ“ Mostrando {filteredRankings.length} de {rankings.length} jugadores
                   </p>
                   <p className="text-xs text-green-600 mt-1">
                     Filtrando por: "{searchTerm}"
@@ -726,7 +726,7 @@ export default function AdminPanel({ onLogout, currentUser, initialSection }: Ad
             )}
             {!searchTerm && (
               <p className="text-xs text-gray-500 mt-2">
-                💡 Busca por cualquier campo: nombre, provincia, usuario, posición o puntos
+                ðŸ’¡ Busca por cualquier campo: nombre, provincia, usuario, posiciÃ³n o puntos
               </p>
             )}
           </div>
@@ -743,7 +743,7 @@ export default function AdminPanel({ onLogout, currentUser, initialSection }: Ad
                       className="w-5 h-5 text-green-600 rounded focus:ring-green-500"
                     />
                   </th>
-                  <th className="text-left p-3 font-semibold text-gray-700">Posición</th>
+                  <th className="text-left p-3 font-semibold text-gray-700">PosiciÃ³n</th>
                   <th className="text-left p-3 font-semibold text-gray-700">Nombre del Jugador</th>
                   <th className="text-left p-3 font-semibold text-gray-700">Provincia</th>
                   <th className="text-left p-3 font-semibold text-gray-700">Usuario Bplay</th>
@@ -811,7 +811,7 @@ export default function AdminPanel({ onLogout, currentUser, initialSection }: Ad
                           type="number"
                           value={pointsAdjustments[player.id] || ''}
                           onChange={(e) => setPointsAdjustments({ ...pointsAdjustments, [player.id]: e.target.value })}
-                          placeholder="±"
+                          placeholder="Â±"
                           className="w-20 px-2 py-1 border border-gray-300 rounded text-sm focus:ring-2 focus:ring-blue-500"
                         />
                         <button
@@ -853,10 +853,10 @@ export default function AdminPanel({ onLogout, currentUser, initialSection }: Ad
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
             <h3 className="font-semibold text-blue-900 mb-2">Consejos:</h3>
             <ul className="text-sm text-blue-800 space-y-1">
-              <li>• Haga clic en "Guardar Cambios" para actualizar todos los datos en la base de datos</li>
-              <li>• Use "Recalcular Posiciones" para ordenar automáticamente por puntos y actualizar la base de datos</li>
-              <li>• Los cambios se verán reflejados inmediatamente en copabplay.com.ar</li>
-              <li>• Las posiciones 1-3 se resaltarán con colores especiales en el ranking</li>
+              <li>â€¢ Haga clic en "Guardar Cambios" para actualizar todos los datos en la base de datos</li>
+              <li>â€¢ Use "Recalcular Posiciones" para ordenar automÃ¡ticamente por puntos y actualizar la base de datos</li>
+              <li>â€¢ Los cambios se verÃ¡n reflejados inmediatamente en copabplay.com.ar</li>
+              <li>â€¢ Las posiciones 1-3 se resaltarÃ¡n con colores especiales en el ranking</li>
             </ul>
           </div>
         </div>
@@ -1047,8 +1047,8 @@ export default function AdminPanel({ onLogout, currentUser, initialSection }: Ad
                     <option value="">Seleccione una provincia</option>
                     <option value="Buenos Aires">Buenos Aires</option>
                     <option value="Mendoza">Mendoza</option>
-                    <option value="Santa Fé">Santa Fé</option>
-                    <option value="Córdoba">Córdoba</option>
+                    <option value="Santa FÃ©">Santa FÃ©</option>
+                    <option value="CÃ³rdoba">CÃ³rdoba</option>
                     <option value="CABA">CABA</option>
                   </select>
                 </div>
@@ -1082,7 +1082,7 @@ export default function AdminPanel({ onLogout, currentUser, initialSection }: Ad
 
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
                   <p className="text-sm text-blue-800">
-                    La posición se calculará automáticamente según los puntos ingresados.
+                    La posiciÃ³n se calcularÃ¡ automÃ¡ticamente segÃºn los puntos ingresados.
                   </p>
                 </div>
               </div>
