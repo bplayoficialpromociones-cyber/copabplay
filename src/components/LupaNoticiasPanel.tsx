@@ -967,6 +967,7 @@ export default function LupaNoticiasPanel() {
             .from('lupa_noticias')
             .select('*')
             .eq('hilo_id', hilo.id)
+            .eq('categoria', hilo.categoria)
             .order('score_ia', { ascending: false })
             .order('fecha_publicacion', { ascending: false })
             .limit(15);
